@@ -2,14 +2,14 @@ __author__ = 'Kelvin Wu'
 
 import random
 
-game_version = "Rock Paper Scissors v1.0"
+game_version = "Rock Paper Scissors v1.01"
 print(game_version)
 
 
 def true_or_not(string):
     if not string.lower() in ["y", "yes", "n", "no"]:
         print("That is not a valid answer. Try again.")
-        return true_or_not(input("Play again? "))
+        return true_or_not(input("> "))
     elif string.lower() in ["y", "yes"]:
         return True
     elif string.lower() in ["n", "no"]:
@@ -25,8 +25,8 @@ def nat_to_choice(nat):
         return "Scissors"
 
 while True:
-    play_or_not = input("Do you want to play? ")
-    if play_or_not.lower() in ["y", "yes"]:
+    play_or_not = true_or_not(input("Do you want to play? "))
+    if play_or_not == True:
         next_round = True
         while next_round:
             computer_choice = random.randint(0, 3)
@@ -49,10 +49,8 @@ while True:
                 print("You chose {0} and your opponent chose {1}. You lost.".format(player_choice.capitalize(), nat_to_choice(computer_choice)))
                 next_round = true_or_not(input("Play again? "))
         else:
-            print("Thanks for trying {0:s}.".format(game_version))
+            print("Thanks for trying {0}.".format(game_version))
             break
-    elif play_or_not.lower() in ["n", "no"]:
-        print("Thanks for trying {0:s}.".format(game_version))
+    elif play_or_not == False:
+        print("Thanks for trying {0}.".format(game_version))
         break
-    else:
-        print("That is not a valid answer. Try again.")
