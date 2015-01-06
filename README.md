@@ -1,4 +1,3 @@
-r-p-s
+Rock-Paper-Scissors
 =====
-
-Rock paper scissors
+A game to test basic Python knowledge.
